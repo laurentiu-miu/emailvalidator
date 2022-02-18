@@ -69,7 +69,11 @@ public class ValidatorApplication {
 	}
 
 	@Operation(summary = "API phone validator endpoint 1.",
-			description = "The following validator check if the number length is 10:\n",
+			description = "The following validator check if the number length is 10:\n"
+			+ "\n"
+			+ "Valid phone numbers: 0726777000, 0123211111\n"
+			+ "\n"
+			+ "Invalid phone numbers: 07aa777000, +123211111",
 			tags = { "Phone API" },
 			responses = {
 					@ApiResponse(
@@ -80,6 +84,7 @@ public class ValidatorApplication {
 			})
 	@GetMapping("/api2/v1/validate")
 	public String validatePhone1(@RequestParam String phone){
+		sleep(2000);
 		Random random = new Random();
 		if(random.ints().findFirst().getAsInt() % 2 == 0){
 			throw new RuntimeException("The server had an unexpected problem please try again!");
@@ -89,7 +94,11 @@ public class ValidatorApplication {
 	}
 
 	@Operation(summary = "API phone validator endpoint 2.",
-			description = "The following validator check if the string digits are numbers:\n",
+			description = "The following validator check if the string contains only digits:\n"
+			+ "\n"
+			+ "Valid phone numbers: 0726777000, 0123211111\n"
+			+ "\n"
+			+ "Invalid phone numbers: 07aa777000, +123211111",
 			tags = { "Phone API" },
 			responses = {
 					@ApiResponse(
@@ -100,8 +109,16 @@ public class ValidatorApplication {
 			})
 	@GetMapping("/api2/v2/validate")
 	public String validatePhone2(@RequestParam String phone){
-
+		sleep(4000);
 		String result = phone.matches("[0-9]+") ? "is valid" : "is invalid";
 		return String.format("The phone %s %s!",phone, result);
+	}
+
+	public static void sleep(long time){
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
