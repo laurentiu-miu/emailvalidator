@@ -70,10 +70,11 @@ public class ValidatorApplication {
 
 	@Operation(summary = "API phone validator endpoint 1.",
 			description = "The following validator check if the number length is 10:\n"
+			+ "- Valid phone numbers: 0726777000, 0123211111\n"
+			+ "- Invalid phone numbers: 07aa777000, +123211111\n"
 			+ "\n"
-			+ "Valid phone numbers: 0726777000, 0123211111\n"
-			+ "\n"
-			+ "Invalid phone numbers: 07aa777000, +123211111",
+			+ "The service may throw from time to time HTTP STATUS 503 SERVICE_UNAVAILABLE.\n"
+			,
 			tags = { "Phone API" },
 			responses = {
 					@ApiResponse(
@@ -95,10 +96,8 @@ public class ValidatorApplication {
 
 	@Operation(summary = "API phone validator endpoint 2.",
 			description = "The following validator check if the string contains only digits:\n"
-			+ "\n"
-			+ "Valid phone numbers: 0726777000, 0123211111\n"
-			+ "\n"
-			+ "Invalid phone numbers: 07aa777000, +123211111",
+			+ "- Valid phone numbers: 0726777000, 0123211111\n"
+			+ "- Invalid phone numbers: 07aa777000, +123211111",
 			tags = { "Phone API" },
 			responses = {
 					@ApiResponse(
