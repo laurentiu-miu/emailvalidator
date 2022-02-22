@@ -12,6 +12,11 @@ II. What should you do?
 4. All newly added persons must have email & phone validated (using external API validator):
 - if the phone or email is not valid the persone must not be addded.
 - all modifications on email & phone must be validated in order to be updated
+5. Schedule a job to publish to log total number of persons every 5 minutes
+6. Use spring async(with sleep 5 sec) to send invalid phones and emails to log
+7. Check what are the transitive maven dependency
+8. Perform Unit Test on created endpoint
+
 
 III. External Validation API
 Github repository: git@github.com:laurentiu-miu/validator.git
