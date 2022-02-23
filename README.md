@@ -10,7 +10,7 @@ II. What should you do?
 2. Create an entity Person that contains name, email, phone.
 3. Create REST endpoints to address CRUD operations for the entity Person.
 4. All newly added persons must have email & phone validated (using external API validator):
-- if the phone or email is not valid the persone must not be addded.
+- if the phone or email is not valid the person must not be added.
 - all modifications on email & phone must be validated in order to be updated
 5. Schedule a job to publish to log total number of persons every 5 minutes
 6. Use spring async(with sleep 5 sec) to send invalid phones and emails to log
